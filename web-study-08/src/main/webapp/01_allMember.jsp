@@ -23,6 +23,7 @@
 			<th>전화번호</th>
 			<th>권한(1:관리자, 0:일반회원)</th>
 		</tr>
+	
 		<%
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		Connection con = null;
@@ -38,6 +39,7 @@
 
 			// 3. sql구문 전송 및 실행 결과물 rs참조
 			stmt = con.createStatement();
+			
 			rs = stmt.executeQuery(sql);
 			
 			// 4. 데이터베이스 값 출력
@@ -74,7 +76,9 @@
 				e.printStackTrace();
 			}
 		}
+		
 		%>
+		
 	</table>
 </body>
 </html>

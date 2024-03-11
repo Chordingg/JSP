@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="empolyee2.jsp">
+<form action="employee2.jsp">
    이름 : <input type="text" name="name">
    <input type="submit" value="전송">
 </form>
