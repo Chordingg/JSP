@@ -38,7 +38,7 @@ public class UploadServlet extends HttpServlet {
 		System.out.println("context : " + context );
 		
 		String uploadFilePath = context.getRealPath(savePath);
-		System.out.println("uploadFilePath" + uploadFilePath);	// 서버상 실제 폴더(디렉토리)
+		System.out.println("uploadFilePath : " + uploadFilePath);	// 서버상 실제 폴더(디렉토리)
 		
 		try {
 			MultipartRequest multi = new MultipartRequest(
@@ -59,7 +59,7 @@ public class UploadServlet extends HttpServlet {
 			} else {
 				out.println("<br>글쓴이 : " + multi.getParameter("name"));
 				out.println("<br>제목 : " + multi.getParameter("title"));
-				out.println("<br>파일명 : " + multi.getParameter("fileName"));
+				out.println("<br>파일명 : " + fileName);
 			}
 		}catch (Exception e) {	
 			e.printStackTrace();
