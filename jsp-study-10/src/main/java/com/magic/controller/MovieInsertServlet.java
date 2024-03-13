@@ -14,27 +14,16 @@ import com.magic.dto.MovieVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-
-@WebServlet("/movieUpdate.do")
-public class MovieUpdateServlet extends HttpServlet {
+@WebServlet("/movieWrite.do")
+public class MovieInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
-		
-		int code = Integer.parseInt(request.getParameter("code"));
-		
-		MovieVO vo = MovieDAO.getInstance().getOneMovie(code);
-		
-		request.setAttribute("movie", vo);
-		
-		request.getRequestDispatcher("movie/movieUpdate.jsp")
-			.forward(request, response);
+		request.getRequestDispatcher("movie/movieRegister.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		
@@ -48,30 +37,26 @@ public class MovieUpdateServlet extends HttpServlet {
 		MultipartRequest multi = new MultipartRequest(request, path,sizeLimit, 
 				encType, new DefaultFileRenamePolicy());
 		
-		String code = multi.getParameter("code");
 		String title = multi.getParameter("title");
 		String price = multi.getParameter("price");
 		String director = multi.getParameter("director");
 		String actor = multi.getParameter("actor");
 		String synopsis = multi.getParameter("synopsis");
-		String fileName = null;
-		MovieVO vo = new MovieVO();
-		System.out.println("poster : " + multi.getFilesystemName("poster"));
-		if(multi.getFilesystemName("poster") == null) {
-			vo.setPoster(multi.getParameter("nonmakeImg"));
-		}else {
-			vo.setPoster(multi.getFilesystemName("poster"));
-		}
+		String fileName = multi.getFilesystemName("poster");
 		
-		vo.setCode(Integer.parseInt(code));
+		MovieVO vo = new MovieVO();
 		vo.setTitle(title);
 		vo.setPrice(Integer.parseInt(price));
 		vo.setDirector(director);
 		vo.setActor(actor);
+		vo.setPoster(fileName);
 		vo.setSynopsis(synopsis);
 		
-		MovieDAO.getInstance().updateMovie(vo);
+		MovieDAO.getInstance().insertMovie(vo);
 		response.sendRedirect("movieList.do");
+		
+		
+				 
 	}
 
 }

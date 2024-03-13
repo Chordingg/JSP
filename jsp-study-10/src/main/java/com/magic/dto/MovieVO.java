@@ -5,17 +5,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 /*
-
-code number(4) PRIMARY KEY,
-title VARCHAR2(50),
-price NUMBER(10),
-director VARCHAR2(20),
-actor VARCHAR2(20),
-poster VARCHAR2(100),
-synopsis VARCHAR2(1000));
-
-*/
-
+ * CREATE TABLE movie(
+	code number(4) PRIMARY KEY,
+	title VARCHAR2(50),
+	price NUMBER(10), 
+	director VARCHAR2(20),
+	actor VARCHAR2(20),
+	poster VARCHAR2(100),
+	synopsis VARCHAR2(1000));
+ */
 @Setter
 @Getter
 @ToString
@@ -27,4 +25,5 @@ public class MovieVO {
 	private String actor;
 	private String poster;
 	private String synopsis;
+	
 }
