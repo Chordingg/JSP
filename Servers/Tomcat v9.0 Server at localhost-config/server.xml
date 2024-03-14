@@ -151,13 +151,29 @@
 						url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="scott" />
 				</Context>
 				<Context docBase="jsp-study-10" path="/jsp-study-10"
-					reloadable="true" source="org.eclipse.jst.jee.server:jsp-study-10" >
+					reloadable="true" source="org.eclipse.jst.jee.server:jsp-study-10">
+					<Resource auth="Container"
+						driverClassName="oracle.jdbc.OracleDriver" maxIdle="10"
+						maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"
+						password="1234" type="javax.sql.DataSource"
+						url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="ezen" />
+				</Context>
+				<Context docBase="study-02" path="/study-02"
+					reloadable="true" source="org.eclipse.jst.jee.server:study-02" />
+				<Context docBase="study03" path="/jsp-study03"
+					reloadable="true" source="org.eclipse.jst.jee.server:study03" />
+				<Context docBase="study-07" path="/study-07"
+					reloadable="true" source="org.eclipse.jst.jee.server:study-07" />
+				<Context docBase="study-08" path="/study-08"
+					reloadable="true" source="org.eclipse.jst.jee.server:study-08" />
+				<Context docBase="study-09" path="/study-09"
+					reloadable="true" source="org.eclipse.jst.jee.server:study-09">
 				<Resource name="jdbc/myoracle" auth="Container"
-           		   type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
-           		   url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
-           		   username="ezen" password="1234" maxTotal="20" maxIdle="10"
-            	   maxWaitMillis="-1"/>
-              </Context>
+					type="javax.sql.DataSource"
+					driverClassName="oracle.jdbc.OracleDriver"
+					url="jdbc:oracle:thin:@127.0.0.1:1521:xe" username="ezen"
+					password="1234" maxTotal="20" maxIdle="10" maxWaitMillis="-1" />
+				</Context>
 			</Host>
 		</Engine>
 	</Service>
