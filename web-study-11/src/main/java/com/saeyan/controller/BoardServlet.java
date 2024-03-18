@@ -26,7 +26,7 @@ public class BoardServlet extends HttpServlet {
 		Action action=  af.getAction(command);
 		
 		if(action != null) {
-			action.execute(request, response);
+			action.execute(request, response);	// af 에서 받은 주소값 실행
 		}
 		
 	}
