@@ -5,24 +5,22 @@ import lombok.Setter;
 import lombok.ToString;
 
 /*
-CREATE TABLE member(
-admin NUMBER (1) PRIMARY KEY,
-name VARCHAR2(5),
-id VARCHAR2(10),
-pass VARCHAR2(20),
-phone CHAR(13),
-email VARCHAR2(30));
+create table login(
+    id varchar2 (30) primary key,
+    password varchar2 (30),
+    name varchar2 (30),
+    email varchar2 (50),
+    phone char (13)
+);
 */
 
 @Setter
 @Getter
 @ToString
 public class UserVO {
-	private int admin;
-	private String name;
 	private String id;
 	private String pass;
-	private String phone;
+	private String name;
 	private String email;
-
+	private String phone;
 }

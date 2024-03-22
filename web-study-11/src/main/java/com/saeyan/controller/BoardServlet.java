@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.saeyan.controller.action.Action;
-import com.saeyan.controller.action.ActionFactory;
 
 @WebServlet("/BoardServlet")
 public class BoardServlet extends HttpServlet {
